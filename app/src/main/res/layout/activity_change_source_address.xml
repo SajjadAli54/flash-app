@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChangeSourceAddress">
+
+    <SearchView
+        android:id="@+id/sourceAddSV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/search_view_bg"
+        android:backgroundTint="#F9F9F9"
+        android:foregroundTint="#CBCBCB"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search Source Location" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sourceAddRV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
+
+</LinearLayout>
