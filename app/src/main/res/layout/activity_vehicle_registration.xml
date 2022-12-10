@@ -68,23 +68,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxStrokeColor="#4CAF50"
-            app:hintTextColor="#4CAF50"
-            android:layout_margin="5dp">
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/veh_color"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:imeOptions="actionGo"
-                android:hint="Color"
-                />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -132,6 +115,12 @@
 
         </LinearLayout>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Color"
+            android:onClick="handleColor"
+        />
         <Button
             android:id="@+id/drive_vehicle_reg"
             android:layout_width="match_parent"
