@@ -40,7 +40,6 @@ class Role : AppCompatActivity() {
     }
 
     private fun callRegisterForm(role : String){
-        Toast.makeText(this, role, Toast.LENGTH_LONG).show()
         val intent = Intent(this, PassengerRegistration::class.java)
         intent.putExtra("role", role)
         startActivity(intent)

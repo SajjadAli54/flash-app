@@ -7,312 +7,303 @@
     android:layout_gravity="center"
     tools:context=".PassengerRegistration">
 
-    <ScrollView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
         >
-        <LinearLayout
+        <TextView
+            android:id="@+id/regTV_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:gravity="center"
+            android:text="Passenger Registration"
+            android:textColor="#4CAF50"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#4CAF50"
+            app:hintTextColor="#4CAF50"
+            >
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/username_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionGo"
+                android:hint="Username"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#4CAF50"
+            app:hintTextColor="#4CAF50"
+
+            >
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_password_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionGo"
+                android:hint="Password"
+                android:inputType="textPassword"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#4CAF50"
+            app:hintTextColor="#4CAF50"
+
+            >
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_firstname_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionGo"
+                android:hint="Firstname"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#4CAF50"
+            app:hintTextColor="#4CAF50"
+            >
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_lastname_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionGo"
+                android:hint="Lastname"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#4CAF50"
+            app:hintTextColor="#4CAF50"
+            >
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_phoneNumber_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:imeOptions="actionGo"
+                android:hint="Phone no."
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#4CAF50"
+            app:hintTextColor="#4CAF50"
+            >
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_address_id"
+                android:inputType="textPostalAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionGo"
+                android:hint="Home Address"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#4CAF50"
+            app:hintTextColor="#4CAF50"
+            >
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_email_id"
+                android:inputType="textEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="#4CAF50"
+                app:hintTextColor="#4CAF50"
+                android:imeOptions="actionGo"
+                android:hint="Email Address"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#4CAF50"
+            app:hintTextColor="#4CAF50"
+            >
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_smartphone_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionGo"
+                android:inputType="textShortMessage"
+                android:hint="Smart Phone Network"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="#4CAF50"
+            app:hintTextColor="#4CAF50"
+            >
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_nrc_id"
+                android:inputType="textShortMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionGo"
+                android:hint="NRC No."
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--  Images       -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_gravity="center"
             >
-            <TextView
-                android:id="@+id/regTV_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Passenger Registration"
-                android:textColor="#4CAF50"
-                android:textSize="30sp"
-                android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/reg_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/registration"
-                android:layout_gravity="center"
-                />
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="#4CAF50"
-                app:hintTextColor="#4CAF50"
-                android:layout_marginBottom="2dp"
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:onClick="handleChooseProfile"
                 >
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/username_id"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/user_photo_id"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:imeOptions="actionGo"
-                    android:hint="Username"
+                    android:text="Your Photo"
                     />
 
-            </com.google.android.material.textfield.TextInputLayout>
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="#4CAF50"
-                app:hintTextColor="#4CAF50"
-                android:layout_marginBottom="2dp"
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:onClick="handleChooseNrcFront"
+
                 >
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/user_password_id"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/user_photo_id1"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:imeOptions="actionGo"
-                    android:hint="Password"
-                    android:inputType="textPassword"
+                    android:text="NRC Front"
                     />
 
-            </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
 
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:onClick="handleChooseNrcBack"
 
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="#4CAF50"
-                app:hintTextColor="#4CAF50"
-                android:layout_marginBottom="2dp"
                 >
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/user_firstname_id"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/user_photo_id2"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:imeOptions="actionGo"
-                    android:hint="Firstname"
+                    android:text="NRC Back"
                     />
 
-            </com.google.android.material.textfield.TextInputLayout>
+            </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="#4CAF50"
-                app:hintTextColor="#4CAF50"
-                android:layout_marginBottom="2dp">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/user_lastname_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionGo"
-                    android:hint="Lastname"
-                    />
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:onClick="handleChooseLicFront"
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="#4CAF50"
-                app:hintTextColor="#4CAF50"
-                android:layout_marginBottom="2dp">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/user_phoneNumber_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionGo"
-                    android:hint="Phone no."
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="#4CAF50"
-                app:hintTextColor="#4CAF50"
-                android:layout_marginBottom="2dp">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/user_address_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionGo"
-                    android:hint="Home Address"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="#4CAF50"
-                app:hintTextColor="#4CAF50"
-                android:layout_marginBottom="2dp">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/user_email_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:boxStrokeColor="#4CAF50"
-                    app:hintTextColor="#4CAF50"
-                    android:imeOptions="actionGo"
-                    android:hint="Email Address"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="#4CAF50"
-                app:hintTextColor="#4CAF50"
-                android:layout_marginBottom="2dp">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/user_smartphone_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionGo"
-                    android:hint="Smart Phone Network"
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:boxStrokeColor="#4CAF50"
-                app:hintTextColor="#4CAF50"
-                android:layout_marginBottom="2dp">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/user_nrc_id"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionGo"
-                    android:hint="NRC No."
-                    />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <!--  Images       -->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center"
                 >
+                <TextView
+                    android:id="@+id/user_photo_id3"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="License Front"
+                    />
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="60dp"
-                    android:layout_height="50dp"
-                    android:onClick="handleChooseProfile"
-                    android:layout_margin="5dp"
-                    >
-                    <TextView
-                        android:id="@+id/user_photo_id"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Your Photo"
-                        />
+            </androidx.cardview.widget.CardView>
 
-                </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:onClick="handleChooseLicBack"
 
+                >
+                <TextView
+                    android:id="@+id/user_photo_id4"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="License Back"
+                    />
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="60dp"
-                    android:layout_height="50dp"
-                    android:onClick="handleChooseNrcFront"
-                    android:layout_margin="5dp"
-                    >
-                    <TextView
-                        android:id="@+id/user_photo_id1"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="NRC Front"
-                        />
-
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="60dp"
-                    android:layout_height="50dp"
-                    android:onClick="handleChooseNrcBack"
-                    android:layout_margin="5dp"
-                    >
-                    <TextView
-                        android:id="@+id/user_photo_id2"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="NRC Back"
-                        />
-
-                </androidx.cardview.widget.CardView>
-
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="60dp"
-                    android:layout_height="50dp"
-                    android:onClick="handleChooseLicFront"
-                    android:layout_margin="5dp"
-                    >
-                    <TextView
-                        android:id="@+id/user_photo_id3"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="License Front"
-                        />
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="60dp"
-                    android:layout_height="50dp"
-                    android:onClick="handleChooseLicBack"
-                    android:layout_margin="5dp"
-                    >
-                    <TextView
-                        android:id="@+id/user_photo_id4"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="License Back"
-                        />
-
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/regBTN_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:backgroundTint="#4CAF50"
-                android:text="Get Register"
-                android:onClick="onBtnClick"
-                android:layout_margin="5dp"
-                />
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
 
-    </ScrollView>
+        <Button
+            android:id="@+id/regBTN_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:backgroundTint="#4CAF50"
+            android:text="Get Register"
+            android:onClick="onBtnClick"
+
+            />
+    </LinearLayout>
+
 </LinearLayout>

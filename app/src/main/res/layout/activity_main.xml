@@ -81,7 +81,37 @@
                     />
 
 
+
             </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <RadioGroup
+                android:id="@+id/grpRG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                >
+
+                <RadioButton
+                    android:id="@+id/passLogRB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Passenger"
+                    android:checked="true"
+                    />
+
+                <RadioButton
+                    android:id="@+id/driverLogRB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Driver"
+                    android:checked="false"
+                    />
+            </RadioGroup>
+
+
 
 
 

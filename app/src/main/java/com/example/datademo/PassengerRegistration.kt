@@ -11,16 +11,16 @@ import android.widget.*
 import com.example.datademo.data.DatabaseHandler
 import com.example.datademo.data.Driver
 import com.example.datademo.data.Passenger
+import com.example.datademo.data.Person
 
 class PassengerRegistration : AppCompatActivity() {
     private var role: String = ""
-    private lateinit var uriPath : Uri
 
-    var uriProfile: Uri = Uri.parse("")
-    var uriNrcFront: Uri = Uri.parse("")
-    var uriNrcBack: Uri = Uri.parse("")
-    var uriLicFront: Uri = Uri.parse("")
-    var uriLicBack: Uri = Uri.parse("")
+    var uriProfile: Uri? = null
+    var uriNrcFront: Uri? = null
+    var uriNrcBack: Uri? = null
+    var uriLicFront: Uri? = null
+    var uriLicBack: Uri? = null
 
     lateinit var database: DatabaseHandler
 
@@ -45,10 +45,8 @@ class PassengerRegistration : AppCompatActivity() {
         }
         else{
             registerDriver()
-            //Store the data in database as in driver and Move to the registration of vehicle.
-            val intent = Intent(this, VehicleRegistration::class.java)
-            startActivity(intent)
         }
+
     }
 
     private fun registerPassenger(){
@@ -63,14 +61,24 @@ class PassengerRegistration : AppCompatActivity() {
         passenger.networkType = findViewById<EditText>(R.id.user_smartphone_id).text.toString()
         passenger.nrcNumber = findViewById<EditText>(R.id.user_nrc_id).text.toString()
 
-        val map = hashMapOf<String, Uri>(
+        val map = hashMapOf<String, Uri?>(
             passenger.profile to uriProfile,
             passenger.nrcFront to uriNrcFront,
             passenger.nrcBack to uriNrcBack,
             passenger.licenseFront to uriLicFront,
             passenger.licenseBack to uriLicBack
         )
-        database.addPassenger(passenger, map)
+        if(validateData(passenger)) {
+            database.addPassenger(passenger, map)
+            logout()
+        }
+    }
+
+    fun logout(){
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intent)
+        finish()
     }
 
     private fun registerDriver(){
@@ -85,14 +93,29 @@ class PassengerRegistration : AppCompatActivity() {
         driver.networkType = findViewById<EditText>(R.id.user_smartphone_id).text.toString()
         driver.nrcNumber = findViewById<EditText>(R.id.user_nrc_id).text.toString()
 
-        val map = hashMapOf<String, Uri>(
+        val map = hashMapOf<String, Uri?>(
             driver.profile to uriProfile,
             driver.nrcFront to uriNrcFront,
             driver.nrcBack to uriNrcBack,
             driver.licenseFront to uriLicFront,
             driver.licenseBack to uriLicBack
         )
-        database.addDriver(driver, map)
+
+        if(validateData(driver)) {
+            database.addDriver(driver, map)
+
+            val intent = Intent(this, VehicleRegistration::class.java)
+            intent.putExtra("username", driver.username)
+            startActivity(intent)
+        }
+    }
+
+    fun validateEmail(email: String): Boolean{
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
+    fun validatePhoneNumber(phone: String): Boolean{
+        return android.util.Patterns.PHONE.matcher(phone).matches()
     }
 
     private fun handleChoose(id: Int){
@@ -141,8 +164,35 @@ class PassengerRegistration : AppCompatActivity() {
         }
     }
 
-    private fun getImage(uri: Uri): Bitmap {
-        return MediaStore.Images.Media.getBitmap(contentResolver, uriPath)
+    fun validateData(person: Person): Boolean{
+        val flag =  person.username.trim().isNotEmpty() &&
+            person.password.trim().isNotEmpty() &&
+                person.firstName.trim().isNotEmpty()  &&
+                person.lastName.trim().isNotEmpty() &&
+                person.phoneNumber.trim().isNotEmpty() &&
+                person.emailAddress.trim().isNotEmpty() &&
+                person.homeAddress.trim().isNotEmpty() &&
+                person.networkType.trim().isNotEmpty() &&
+                person.nrcNumber.trim().isNotEmpty() &&
+
+                uriProfile != null &&
+                uriLicFront != null &&
+                uriLicBack != null &&
+                uriNrcFront != null &&
+                uriNrcBack != null
+        if(!flag) {
+            Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if(!validateEmail(person.emailAddress)){
+            Toast.makeText(this, "Please enter a valid email", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        if(!validatePhoneNumber(person.phoneNumber)){
+            Toast.makeText(this, "Please enter a phone number", Toast.LENGTH_SHORT).show()
+            return false
+        }
+        return true
     }
 
 }

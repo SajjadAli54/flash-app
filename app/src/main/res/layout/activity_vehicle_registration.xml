@@ -31,7 +31,6 @@
             android:layout_gravity="center"
             />
 
-
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -41,11 +40,11 @@
             android:layout_margin="5dp">
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/veh_make"
+                android:id="@+id/veh_plateNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionGo"
-                android:hint="Make"
+                android:hint="Vehicle Plate no."
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -96,40 +95,163 @@
             android:layout_margin="5dp">
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/veh_plateNo"
+                android:id="@+id/veh_color"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionGo"
-                android:hint="Vehicle Plate no."
+                android:hint="Color"
                 />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Choose source and destination"
+                />
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:boxStrokeColor="#4CAF50"-->
+<!--                app:hintTextColor="#4CAF50"-->
+<!--                android:layout_margin="5dp">-->
+
+<!--                <androidx.appcompat.widget.AppCompatSpinner-->
+<!--                    android:id="@+id/sourceSpinner"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:imeOptions="actionGo"-->
+<!--                    android:prompt="@string/source"-->
+<!--                    tools:listheader="source"-->
+<!--                    />-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:boxStrokeColor="#4CAF50"-->
+<!--                app:hintTextColor="#4CAF50"-->
+<!--                android:layout_margin="5dp">-->
+
+<!--                <androidx.appcompat.widget.AppCompatSpinner-->
+<!--                    android:id="@+id/destinationSpinner"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:prompt="@string/destination"/>-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
+        <Spinner
+            android:id="@+id/sourceSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:imeOptions="actionGo"
+            android:spinnerMode="dialog"
+            android:prompt="@string/source"
+            tools:listheader="source"
+            />
+
+        <Spinner
+            android:id="@+id/destinationSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dialog"
+            android:prompt="@string/destination"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_gravity="center"
             >
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:onClick="handleChooseFrontView"
+                >
+                <TextView
+                    android:id="@+id/vehicleFrontView"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Front View"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:onClick="handleChooseRearView"
+
+                >
+                <TextView
+                    android:id="@+id/vehicleRearView"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rear View"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:onClick="handleChooseSideView"
+
+                >
+                <TextView
+                    android:id="@+id/vehicleSideView"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Side View"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:onClick="handleChooseInsideView"
+
+                >
+                <TextView
+                    android:id="@+id/vehicleInsideView"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Inside View"
+                    />
+
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Color"
-            android:onClick="handleColor"
-        />
+
         <Button
             android:id="@+id/drive_vehicle_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:backgroundTint="#4CAF50"
-            android:text="Get Register"
             android:layout_margin="5dp"
-            />
+            android:backgroundTint="#4CAF50"
+            android:onClick="handleRegisterVehicle"
+            android:text="Get Register"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

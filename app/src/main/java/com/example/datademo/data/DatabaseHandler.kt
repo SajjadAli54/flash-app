@@ -2,7 +2,6 @@ package com.example.datademo.data
 
 import android.content.Context
 import android.net.Uri
-import android.provider.ContactsContract
 import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
@@ -28,7 +27,7 @@ class DatabaseHandler{
     }
 
 
-    fun addDriver(driver: Driver, map: HashMap<String, Uri>){
+    fun addDriver(driver: Driver, map: HashMap<String, Uri?>){
         if(driverPresent(driver.username)){
             Toast.makeText(context, "username not available", Toast.LENGTH_LONG).show()
             return
@@ -57,11 +56,20 @@ class DatabaseHandler{
         return driversMap.values.toTypedArray()
     }
 
+    fun getDriver(username: String): Driver{
+        return driversMap[username]!!
+    }
+
     fun driverPresent(username: String): Boolean{
         return driversMap.containsKey(username)
     }
 
-    fun addPassenger(passenger: Passenger, map: HashMap<String, Uri>){
+    fun existsDriver(username: String, password: String): Boolean{
+        return driverPresent(username) &&
+                driversMap[username]!!.password.equals(password)
+    }
+
+    fun addPassenger(passenger: Passenger, map: HashMap<String, Uri?>){
         if(passengerPresent(passenger.username)){
             Toast.makeText(context, "username not available", Toast.LENGTH_LONG).show()
             return
@@ -89,23 +97,33 @@ class DatabaseHandler{
     }
 
 
+    fun existsPassenger(username: String, password: String): Boolean{
+        return passengerPresent(username) &&
+                passengerMap[username]!!.password.equals(password)
+    }
+
+    fun getPassenger(username: String): Passenger{
+        return passengerMap[username]!!
+    }
+
+
     fun downloadPassengerImages(username: String, map: HashMap<String, ImageView>){
         val ref = pathReference.child(passengersCollection).child(username)
         downloadImages(ref, map)
     }
 
-    fun addVehicle(vehicle: Vehicle, map: HashMap<String, Uri>){
-        if(vehiclePresent(vehicle.plateNumber)){
+    fun addVehicle(vehicle: Vehicle, map: HashMap<String, Uri?>){
+        if(vehiclePresent(vehicle.username)){
             Toast.makeText(context, "Already registered!", Toast.LENGTH_LONG).show()
             return
         }
         Thread{
-            db.collection(vehiclesCollection).document(vehicle.plateNumber).set(vehicle)
+            db.collection(vehiclesCollection).document(vehicle.username).set(vehicle)
                 .addOnSuccessListener {
                     Toast.makeText(context, "Registered successfully!", Toast.LENGTH_LONG).show()
-                    vehiclesMap[vehicle.plateNumber] = vehicle
+                    vehiclesMap[vehicle.username] = vehicle
 
-                    val ref: StorageReference = reference.child(vehiclesCollection).child(vehicle.plateNumber)
+                    val ref: StorageReference = reference.child(vehiclesCollection).child(vehicle.username)
                     uploader(ref, map)
                 }
                 .addOnFailureListener {
@@ -118,28 +136,28 @@ class DatabaseHandler{
         return vehiclesMap.values.toTypedArray()
     }
 
-    fun vehiclePresent(platNumber: String): Boolean{
-        return vehiclesMap.containsKey(platNumber)
+    fun getVehicle(username: String): Vehicle{
+        return vehiclesMap[username]!!
     }
 
+    fun vehiclePresent(username: String): Boolean{
+        return vehiclesMap.containsKey(username)
+    }
 
-    fun downloadVehicleImages(platNumber: String, map: HashMap<String, ImageView>){
-        val ref = pathReference.child(vehiclesCollection).child(platNumber)
+    fun downloadVehicleImages(username: String, map: HashMap<String, ImageView>){
+        val ref = pathReference.child(vehiclesCollection).child(username)
 
         downloadImages(ref, map)
     }
 
-    private fun uploader(ref: StorageReference, cv: HashMap<String, Uri>){
-        val keys = cv.keys
-        var i = 1
-        var size = cv.size
-        for(key in keys)
-            uploadImage(ref, key, cv[key]!!, arrayOf(i++, size))
+    private fun uploader(ref: StorageReference, cv: HashMap<String, Uri?>){
+        for(key in cv.keys)
+            uploadImage(ref, key, cv[key])
     }
 
     private fun uploadImage
-                (ref: StorageReference,image: String, uriPath: Uri, count: Array<Int>){
-        ref.child(image).putFile(uriPath)
+                (ref: StorageReference,image: String, uriPath: Uri?){
+        ref.child(image).putFile(uriPath!!)
             .addOnSuccessListener {
                 Toast.makeText(context, "Images saved", Toast.LENGTH_SHORT).show()
             }
