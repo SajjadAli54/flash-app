@@ -30,8 +30,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loginPassenger(username: String, password: String){
-        if(databaseHandler.existsPassenger(username, password))
+        if(databaseHandler.existsPassenger(username, password)) {
+            val intent = Intent(this, PassengerHP::class.java)
+            intent.putExtra("username", username)
+            startActivity(intent)
             Toast.makeText(this, "I am registered as passenger", Toast.LENGTH_SHORT).show()
+            finish()
+        }
         else
             Toast.makeText(this, "I am not registered as passenger", Toast.LENGTH_SHORT).show()
     }

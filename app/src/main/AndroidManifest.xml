@@ -31,9 +31,12 @@
         <activity
             android:name=".AvailableCars"
             android:exported="false" />
+        <activity android:name=".BookingDetails"></activity>
+        <activity android:name=".PassengerHP"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
