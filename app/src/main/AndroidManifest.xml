@@ -20,9 +20,6 @@
             android:name=".VehicleRegistration"
             android:exported="false" />
         <activity
-            android:name=".Role"
-            android:exported="false" />
-        <activity
             android:name=".PassengerRegistration"
             android:exported="false" />
         <activity

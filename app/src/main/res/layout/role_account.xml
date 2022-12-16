@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Register as Passenger"
-                android:checked="false"
+                android:checked="true"
                 />
 
             <RadioButton
@@ -36,6 +36,7 @@
                 />
         </RadioGroup>
         <Button
+            android:id="@+id/nextButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Next"
