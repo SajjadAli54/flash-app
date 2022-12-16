@@ -20,7 +20,7 @@ class DatabaseHandler{
     companion object{
         private val databaseHandler = DatabaseHandler()
 
-        fun getSingleton(context: Context): DatabaseHandler{
+        fun getInstance(context: Context): DatabaseHandler{
             databaseHandler.context = context
             return databaseHandler
         }

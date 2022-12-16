@@ -11,7 +11,6 @@ import android.widget.Spinner
 import android.widget.Toast
 import com.example.datademo.data.DatabaseHandler
 import com.example.datademo.data.Vehicle
-import kotlin.math.log
 
 class VehicleRegistration : AppCompatActivity() {
 
@@ -31,7 +30,7 @@ class VehicleRegistration : AppCompatActivity() {
         setContentView(R.layout.activity_vehicle_registration)
         val dataAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, cities_names)
 
-        databaseHandler = DatabaseHandler.getSingleton(this)
+        databaseHandler = DatabaseHandler.getInstance(this)
         username = intent.getStringExtra("username").toString()
 
         val src = findViewById<Spinner>(R.id.sourceSpinner)

@@ -1,11 +1,9 @@
 package com.example.datademo
 
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.View
 import android.widget.*
 import com.example.datademo.data.DatabaseHandler
@@ -28,7 +26,7 @@ class PassengerRegistration : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_passenger_registration)
 
-        database = DatabaseHandler.getSingleton(applicationContext)
+        database = DatabaseHandler.getInstance(applicationContext)
 
         role = intent.getStringExtra("role").toString()
         findViewById<TextView>(R.id.regTV_id).text = "$role Registration"

@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        databaseHandler = DatabaseHandler.getSingleton(this)
+        databaseHandler = DatabaseHandler.getInstance(this)
     }
 
     fun login(v: View){
