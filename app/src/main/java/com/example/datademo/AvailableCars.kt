@@ -1,5 +1,6 @@
 package com.example.datademo
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -51,7 +52,8 @@ class AvailableCars : AppCompatActivity() {
             val text2TV = itemView.findViewById<TextView>(R.id.text2)
             init {
                 itemView.setOnClickListener { v: View ->
-                    Toast.makeText(itemView.context, carsInfo[adapterPosition].carName, Toast.LENGTH_LONG).show()
+                    val intent = Intent(itemView.context, BookingDetails::class.java)
+                    itemView.context.startActivity(intent)
                 }
             }
         }
