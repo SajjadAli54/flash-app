@@ -6,6 +6,8 @@ import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.text.format.DateFormat
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.DatePicker
 import android.widget.TimePicker
@@ -32,6 +34,19 @@ class PassengerHP : AppCompatActivity() {
         val intent = Intent(applicationContext, AvailableCars::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         applicationContext.startActivity(intent)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.passenger_menu, menu)
+        return true;
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.currentLocation){
+            val intent = Intent(this, MapsActivity::class.java)
+            startActivity(intent)
+        }
+        return true
     }
 
 }
