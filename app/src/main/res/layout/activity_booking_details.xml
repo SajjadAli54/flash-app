@@ -196,6 +196,7 @@
             android:layout_margin="10dp"
             android:layout_weight="0.5"
             android:backgroundTint="#E9EDED"
+            android:onClick="cancel"
             android:text="Cancel"
             android:textColor="#28DEFF"></Button>
 
@@ -205,6 +206,7 @@
             android:layout_margin="10dp"
             android:layout_weight="0.5"
             android:backgroundTint="#E9EDED"
+            android:onClick="checkOut"
             android:text="Book Now"
             android:textColor="#FFC107"></Button>
     </LinearLayout>
