@@ -45,6 +45,11 @@ class PassengerHP : AppCompatActivity() {
         if(dateSetted && !location.equals("")) {
             val intent = Intent(applicationContext, AvailableCars::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            val dateTime = findViewById<TextView>(R.id.dateTimeTxt)
+            val location = findViewById<TextView>(R.id.locationTxt)
+            intent.putExtra("dateTime", dateTime.text.toString())
+            intent.putExtra("location", location.text.toString())
+
             applicationContext.startActivity(intent)
         }
         else{

@@ -41,6 +41,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/book_car_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Maserati"
@@ -50,27 +51,30 @@
             </TextView>
 
             <TextView
+                android:id="@+id/book_car_owner"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
+                android:layout_height="wrap_content"
                 android:text="Gabkljfjljfl fkljfkljlfjl ljljljlj     kljljlkjgljlgj "
                 android:textColor="#75918484"
                 android:textSize="10dp"
                 android:textStyle="bold"></TextView>
 
             <TextView
+                android:id="@+id/book_location"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
+                android:layout_height="wrap_content"
                 android:text="locationn n"
                 android:textColor="#75918484"
                 android:textSize="10dp"
                 android:textStyle="bold"></TextView>
 
             <TextView
+                android:id="@+id/book_dateTime"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
 
+                android:layout_height="wrap_content"
                 android:text="date 208 489 50"
                 android:textColor="#75918484"
                 android:textSize="10dp"

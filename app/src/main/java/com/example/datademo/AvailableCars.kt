@@ -53,6 +53,11 @@ class AvailableCars : AppCompatActivity() {
             init {
                 itemView.setOnClickListener { v: View ->
                     val intent = Intent(itemView.context, BookingDetails::class.java)
+                    intent.putExtra("carname", v.findViewById<TextView>(R.id.car_name).text.toString())
+                    intent.putExtra("drivername", v.findViewById<TextView>(R.id.driver_name).text.toString())
+                    val app = itemView.context as AppCompatActivity
+                    intent.putExtra("dateTime", app.intent.getStringExtra("dateTime"))
+                    intent.putExtra("location", app.intent.getStringExtra("location"))
                     itemView.context.startActivity(intent)
                 }
             }
