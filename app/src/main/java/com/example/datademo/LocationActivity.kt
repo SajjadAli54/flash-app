@@ -124,6 +124,15 @@ class LocationActivity : AppCompatActivity() {
 
         class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
             val destTV: TextView = itemView.findViewById(R.id.destinationRV)
+            init {
+                itemView.setOnClickListener{
+
+                    PassengerHP.location = destTV.text.toString()
+                    val app = itemView.context as AppCompatActivity
+                    app.setResult(RESULT_OK)
+                    app.finish()
+                }
+            }
         }
     }
 

@@ -44,6 +44,15 @@ class ChangeSourceAddress : AppCompatActivity() {
         //inserting event on items in recyclerview
 
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 123){
+            setResult(RESULT_OK)
+            finish()
+        }
+    }
+
     private fun filterSourceAddress(searchText: String?){
         val filteredLocations: ArrayList<SourceAddress> = ArrayList()
 
@@ -79,9 +88,12 @@ class ChangeSourceAddress : AppCompatActivity() {
                     val positionVal = sourceAddTV.text.toString()
                     val intent = Intent(itemView.context, LocationActivity::class.java)
                     intent.putExtra("source", positionVal)
-                    itemView.context.startActivity(intent)
+                    //itemView.context.startActivity(intent)
                     val app = itemView.context as AppCompatActivity
-                    app.finish()
+                    app.startActivityForResult(intent, 123)
+//                    app.setResult(RESULT_OK)
+//                    Toast.makeText(itemView.context, "here finished", Toast.LENGTH_SHORT).show()
+//                    app.finish()
                 }
             }
 
