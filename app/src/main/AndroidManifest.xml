@@ -65,6 +65,7 @@
             android:exported="false" />
         <activity android:name=".BookingDetails" />
         <activity android:name=".PassengerHP" />
+        <activity android:name="com.example.drivermodule.DriverModule"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

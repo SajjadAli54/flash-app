@@ -10,6 +10,7 @@ import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.datademo.data.DatabaseHandler
+import com.example.drivermodule.DriverModule
 
 class MainActivity : AppCompatActivity() {
     lateinit var databaseHandler: DatabaseHandler
@@ -42,8 +43,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loginDriver(username: String, password: String){
-        if(databaseHandler.existsDriver(username, password))
+        if(databaseHandler.existsDriver(username, password)) {
+            val intent = Intent(this, DriverModule::class.java)
+            startActivity(intent)
             Toast.makeText(this, "I am registered as Driver", Toast.LENGTH_SHORT).show()
+        }
         else
             Toast.makeText(this, "I am not registered as Driver", Toast.LENGTH_SHORT).show()
     }
