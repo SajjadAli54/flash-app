@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/round"
-    android:backgroundTint="#009688"
+    android:backgroundTint="#4CAF50"
     android:orientation="vertical"
     android:padding="10dp">
 
@@ -29,5 +29,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="#009688" />
 </LinearLayout>

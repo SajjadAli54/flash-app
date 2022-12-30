@@ -35,7 +35,7 @@ class PassengerHP : AppCompatActivity() {
         databaseHandler = DatabaseHandler.getInstance(applicationContext)
         val oldBookings = arrayListOf<OldBooking>(
             OldBooking("Chama-Chadiza", "12-30-2022 2:30", "CAR abc")
-            ,OldBooking("Chama-Sikalongo", "12-30-2022 2:35", "CAR abc")
+            ,OldBooking("Isoka-Sikalongo", "12-30-2022 2:35", "CAR abc")
         )
         findViewById<ListView>(R.id.old_bookings).adapter = CustomAdapter(this, R.layout.old_booking, oldBookings)
         //Toast.makeText(this,databaseHandler.getDriver("ammar").password, Toast.LENGTH_SHORT).show()
