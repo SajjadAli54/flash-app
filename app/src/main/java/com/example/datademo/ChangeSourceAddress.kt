@@ -1,5 +1,6 @@
 package com.example.datademo
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +20,7 @@ class ChangeSourceAddress : AppCompatActivity() {
     lateinit var sourceAddList: ArrayList<SourceAddress>
     lateinit var searchView : SearchView
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_change_source_address)

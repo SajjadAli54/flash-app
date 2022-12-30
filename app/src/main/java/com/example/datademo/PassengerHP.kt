@@ -16,6 +16,7 @@ import android.widget.TimePicker
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
+import com.example.datademo.data.DatabaseHandler
 import com.google.api.Billing.BillingDestination
 import org.w3c.dom.Text
 import java.util.*
@@ -27,10 +28,13 @@ class PassengerHP : AppCompatActivity() {
         var location :String = ""
         var dateSetted = false
     }
+    lateinit var databaseHandler:DatabaseHandler
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_passengerhp)
+        databaseHandler = DatabaseHandler.getInstance(applicationContext)
+        //Toast.makeText(this,databaseHandler.getDriver("ammar").password, Toast.LENGTH_SHORT).show()
     }
 
     fun selectDateTime(v: View){

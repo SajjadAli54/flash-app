@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -47,6 +48,8 @@ class CheckoutActivity : AppCompatActivity() {
 
         // Check whether Google Pay can be used to complete a payment
         model.canUseGooglePay.observe(this, Observer(::setGooglePayAvailable))
+        val tv = findViewById<TextView>(R.id.detailDescription)
+        tv.text = intent.getStringExtra("desc")
     }
 
     /**

@@ -23,6 +23,7 @@ class BookingDetails : AppCompatActivity() {
     }
     fun checkOut(v: View){
         val intent = Intent(this, CheckoutActivity::class.java)
+        intent.putExtra("desc", this.intent.getStringExtra("location")+"\n"+this.intent.getStringExtra("dateTime"))
         startActivity(intent)
     }
     fun cancel(v: View){
