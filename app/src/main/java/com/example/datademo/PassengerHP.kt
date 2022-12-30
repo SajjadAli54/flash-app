@@ -3,23 +3,22 @@ package com.example.datademo
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.app.TimePickerDialog
+import android.content.Context
 import android.content.Intent
-import android.location.Location
 import android.os.Bundle
 import android.text.format.DateFormat
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
+import android.view.*
+import android.widget.ArrayAdapter
 import android.widget.DatePicker
+import android.widget.ListView
 import android.widget.TextView
 import android.widget.TimePicker
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import com.example.datademo.data.DatabaseHandler
-import com.google.api.Billing.BillingDestination
-import org.w3c.dom.Text
 import java.util.*
+import kotlin.collections.ArrayList
 
 class PassengerHP : AppCompatActivity() {
     val LOCATION_ACTIVITY_CODE = 1
@@ -34,9 +33,26 @@ class PassengerHP : AppCompatActivity() {
 
         setContentView(R.layout.activity_passengerhp)
         databaseHandler = DatabaseHandler.getInstance(applicationContext)
+        val oldBookings = arrayListOf<OldBooking>(
+            OldBooking("Chama-Chadiza", "12-30-2022 2:30", "CAR abc")
+            ,OldBooking("Chama-Sikalongo", "12-30-2022 2:35", "CAR abc")
+        )
+        findViewById<ListView>(R.id.old_bookings).adapter = CustomAdapter(this, R.layout.old_booking, oldBookings)
         //Toast.makeText(this,databaseHandler.getDriver("ammar").password, Toast.LENGTH_SHORT).show()
     }
+    data class OldBooking(val location:String, val date_time:String, val driver_car:String)
+    class CustomAdapter(context:Context, resource:Int, objects: ArrayList<OldBooking>) : ArrayAdapter<OldBooking> (context, resource, objects){
 
+        val resource = resource
+        val objects = objects
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+            val view = LayoutInflater.from(context).inflate(resource, parent, false)
+            view.findViewById<TextView>(R.id.location_old).text = objects[position].location
+            view.findViewById<TextView>(R.id.driver_old).text = objects[position].driver_car
+            view.findViewById<TextView>(R.id.dateTime_old).text = objects[position].date_time
+            return view
+        }
+    }
     fun selectDateTime(v: View){
         TimePickerFragment().show(supportFragmentManager, "timePicker")
     }
